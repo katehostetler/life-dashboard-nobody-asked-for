@@ -1,0 +1,34 @@
+{
+  "name": "life-dashboard-nobody-asked-for",
+  "version": "1.0.0",
+  "description": "A visually stunning single-page web app that greets you with a curated collection of delightful, obscure, and mildly absurd facts about *right now*. Not a productivity tool. Not useful. Just... wonderful.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "motion": "^12.34.3",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "suncalc": "^1.9.0",
+    "swr": "^2.4.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.3.3",
+    "@types/react": "^19.2.14",
+    "@types/suncalc": "^1.9.2",
+    "eslint": "^9.39.3",
+    "eslint-config-next": "^16.1.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ===== Design System: Life Dashboard Nobody Asked For ===== */
+/* "Warm Cosmic" — deep purples, amber accents, soft glows */
+
+@theme {
+  /* Background palette */
+  --color-cosmic-deepest: #0D0A1A;
+  --color-cosmic-primary: #141024;
+  --color-cosmic-elevated: #1C1635;
+  --color-cosmic-surface: #241E42;
+
+  /* Amber accents */
+  --color-amber-primary: #F5A623;
+  --color-amber-bright: #FFD166;
+  --color-amber-glow: rgba(245, 166, 35, 0.2);
+
+  /* Rose accent */
+  --color-rose-accent: #E8847C;
+
+  /* Text hierarchy */
+  --color-text-primary: #F0EBF4;
+  --color-text-secondary: #A89BBE;
+  --color-text-tertiary: #6B5E80;
+  --color-text-accent: #FFD166;
+
+  /* Borders */
+  --color-border-subtle: #2A2248;
+  --color-border-glow: rgba(245, 166, 35, 0.27);
+
+  /* Typography scale (fluid) */
+  --font-size-hero: clamp(3rem, 5vw + 1rem, 7rem);
+  --font-size-display: clamp(2rem, 3vw + 0.5rem, 4rem);
+  --font-size-counter: clamp(2.5rem, 4vw + 0.5rem, 5rem);
+  --font-size-heading: clamp(1.5rem, 2vw + 0.5rem, 2.5rem);
+  --font-size-subheading: clamp(1.125rem, 1.5vw + 0.25rem, 1.5rem);
+  --font-size-body: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+  --font-size-caption: clamp(0.75rem, 0.5vw + 0.625rem, 0.875rem);
+
+  /* Spacing scale */
+  --spacing-section-hero: 8rem;
+  --spacing-section-major: 6rem;
+  --spacing-section-compact: 4rem;
+
+  /* Content widths */
+  --width-content: 48rem;
+  --width-wide: 64rem;
+
+  /* Font families */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* ===== CSS Custom Properties (dynamic, set by SkyGradientProvider) ===== */
+:root {
+  --sky-gradient-start: #0D0A1A;
+  --sky-gradient-mid: #141024;
+  --sky-gradient-end: #1C1635;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    var(--sky-gradient-start) 0%,
+    var(--sky-gradient-mid) 50%,
+    var(--sky-gradient-end) 100%
+  );
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  transition: background 60s ease;
+  min-height: 100vh;
+}
+
+/* ===== Tabular Numbers for Counters ===== */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Glow Effects ===== */
+.glow-amber {
+  box-shadow: 0 0 40px rgba(245, 166, 35, 0.15);
+}
+
+.glow-amber-strong {
+  box-shadow: 0 0 60px rgba(245, 166, 35, 0.25);
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 30px rgba(245, 166, 35, 0.3);
+}
+
+/* ===== Pulse Animation for Dividers ===== */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* ===== Slow Rotation for Earth ===== */
+@keyframes slow-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-slow-rotate {
+  animation: slow-rotate 120s linear infinite;
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(245, 166, 35, 0.3);
+  color: #F0EBF4;
+}
