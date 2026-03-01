@@ -6,6 +6,11 @@ All notable changes to the life-dashboard-nobody-asked-for project will be docum
 
 ## 2026-03-01
 
+### Deployed
+- Deployed to Vercel: https://life-dashboard-nobody-asked-for.vercel.app
+- Added live demo link to README
+- Set GitHub repo homepage to Vercel URL
+
 ### Added
 - Initialized project with git
 - Created project-level `CLAUDE.md` with project-specific rules

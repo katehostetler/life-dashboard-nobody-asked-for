@@ -1,5 +1,7 @@
 # Life Dashboard Nobody Asked For
 
+**[Live Demo](https://life-dashboard-nobody-asked-for.vercel.app)**
+
 A visually stunning single-page web app that greets you with a curated collection of delightful, obscure, and mildly absurd facts about *right now*. Not a productivity tool. Not useful. Just... wonderful.
 
 Every time you load the page, you get: real NASA photos of Earth, live ISS tracking, your heartbeat count since birth, what the world is reading, ticking global stats, and cosmic perspective — all wrapped in a warm, glowing editorial experience.
