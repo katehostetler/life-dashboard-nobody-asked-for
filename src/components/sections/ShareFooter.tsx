@@ -17,7 +17,12 @@ export default function ShareFooter() {
               <span className="text-text-secondary">NASA</span>,{" "}
               <span className="text-text-secondary">Wikipedia</span>,{" "}
               <span className="text-text-secondary">ISS Tracking API</span>,{" "}
-              <span className="text-text-secondary">OpenSky Network</span>
+              <span className="text-text-secondary">OpenSky Network</span>,{" "}
+              <span className="text-text-secondary">Google Trends</span>,{" "}
+              <span className="text-text-secondary">The Guardian</span>,{" "}
+              <span className="text-text-secondary">CoinGecko</span>,{" "}
+              <span className="text-text-secondary">Metals.dev</span>,{" "}
+              <span className="text-text-secondary">Alpha Vantage</span>
             </p>
             <p className="text-text-tertiary text-[length:var(--font-size-caption)] italic">
               Made with curiosity
