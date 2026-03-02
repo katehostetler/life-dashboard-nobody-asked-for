@@ -75,3 +75,52 @@ export interface CosmicFact {
   text: string;
   source: string;
 }
+
+// ===== Google Trends =====
+export interface TrendingSearch {
+  title: string;
+  traffic: string;
+  url: string;
+}
+
+// ===== News Headlines =====
+export interface NewsHeadline {
+  title: string;
+  url: string;
+  source: string;
+  publishedAt: string;
+}
+
+// ===== Market Prices =====
+export interface MarketPrice {
+  symbol: string;
+  name: string;
+  price: number;
+  change24h: number;
+  currency: string;
+}
+
+// ===== NASA APOD =====
+export interface NasaApod {
+  title: string;
+  explanation: string;
+  url: string;
+  hdurl?: string;
+  media_type: string;
+  date: string;
+}
+
+// ===== Moon Phase =====
+export interface MoonPhaseInfo {
+  phase: number;
+  illumination: number;
+  phaseName: string;
+  emoji: string;
+}
+
+// ===== On This Day =====
+export interface OnThisDayEvent {
+  year: number;
+  text: string;
+  pages: { title: string; url: string }[];
+}
