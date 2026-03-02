@@ -8,13 +8,18 @@ import GlowDivider from "@/components/ui/GlowDivider";
 import HeroEarth from "@/components/sections/HeroEarth";
 import ISSTracker from "@/components/sections/ISSTracker";
 import YouAreHere from "@/components/sections/YouAreHere";
+import TrendingNow from "@/components/sections/TrendingNow";
 import AlgorithmVsCosmos from "@/components/sections/AlgorithmVsCosmos";
 import WorldReading from "@/components/sections/WorldReading";
+import TopHeadlines from "@/components/sections/TopHeadlines";
 import LiveCounters from "@/components/sections/LiveCounters";
+import MarketPulse from "@/components/sections/MarketPulse";
+import TonightsSky from "@/components/sections/TonightsSky";
+import OnThisDay from "@/components/sections/OnThisDay";
 import TimeProgress from "@/components/sections/TimeProgress";
 import ShareFooter from "@/components/sections/ShareFooter";
 
-import type { WikiArticle } from "@/lib/types";
+import type { WikiArticle, TrendingSearch, NewsHeadline, NasaApod, OnThisDayEvent } from "@/lib/types";
 
 interface DashboardProps {
   earthImage: {
@@ -24,12 +29,20 @@ interface DashboardProps {
   } | null;
   wikiArticles: WikiArticle[];
   flightCount: number;
+  trends: TrendingSearch[];
+  headlines: NewsHeadline[];
+  apod: NasaApod | null;
+  onThisDay: OnThisDayEvent[];
 }
 
 export default function Dashboard({
   earthImage,
   wikiArticles,
   flightCount,
+  trends,
+  headlines,
+  apod,
+  onThisDay,
 }: DashboardProps) {
   const topArticle = wikiArticles.length > 0 ? wikiArticles[0] : null;
 
@@ -58,27 +71,52 @@ export default function Dashboard({
 
           <GlowDivider />
 
-          {/* 4. Algorithm vs. Reality */}
+          {/* 4. Trending Now */}
+          <TrendingNow trends={trends} />
+
+          <GlowDivider />
+
+          {/* 5. Algorithm vs. Reality */}
           <AlgorithmVsCosmos topArticle={topArticle} />
 
           <GlowDivider />
 
-          {/* 5. What 8 Billion People Read Yesterday */}
+          {/* 6. What 8 Billion People Read Yesterday */}
           <WorldReading articles={wikiArticles} />
 
           <GlowDivider />
 
-          {/* 6. Right Now, On Earth */}
+          {/* 7. Top Headlines */}
+          <TopHeadlines headlines={headlines} />
+
+          <GlowDivider />
+
+          {/* 8. Right Now, On Earth */}
           <LiveCounters flightCount={flightCount} />
 
           <GlowDivider />
 
-          {/* 7. Time Is Passing */}
+          {/* 9. Market Pulse */}
+          <MarketPulse />
+
+          <GlowDivider />
+
+          {/* 10. Tonight's Sky */}
+          <TonightsSky apod={apod} />
+
+          <GlowDivider />
+
+          {/* 11. On This Day */}
+          <OnThisDay events={onThisDay} />
+
+          <GlowDivider />
+
+          {/* 12. Time Is Passing */}
           <TimeProgress />
 
           <GlowDivider />
 
-          {/* 8. Share Footer */}
+          {/* 13. Share Footer */}
           <ShareFooter />
         </main>
       </BirthdayProvider>

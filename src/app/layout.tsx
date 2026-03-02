@@ -35,7 +35,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        {/* Rare shooting stars — fixed on the viewport */}
+        <div className="shooting-star shooting-star-1" aria-hidden="true" />
+        <div className="shooting-star shooting-star-2" aria-hidden="true" />
+      </body>
     </html>
   );
 }

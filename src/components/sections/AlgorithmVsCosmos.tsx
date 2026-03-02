@@ -26,9 +26,14 @@ export default function AlgorithmVsCosmos({ topArticle }: AlgorithmVsCosmosProps
             </h3>
             {topArticle ? (
               <div>
-                <p className="font-[family-name:var(--font-playfair)] font-bold text-[length:var(--font-size-heading)] text-text-primary mb-2">
+                <a
+                  href={`https://en.wikipedia.org/wiki/${encodeURIComponent(topArticle.article.replace(/ /g, "_"))}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-[family-name:var(--font-playfair)] font-bold text-[length:var(--font-size-heading)] text-text-primary mb-2 block hover:text-text-accent transition-colors"
+                >
                   {topArticle.article}
-                </p>
+                </a>
                 <p className="text-text-tertiary text-[length:var(--font-size-caption)]">
                   #1 on Wikipedia yesterday with{" "}
                   <span className="text-text-secondary tabular-nums">
