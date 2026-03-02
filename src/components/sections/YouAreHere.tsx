@@ -60,39 +60,39 @@ export default function YouAreHere() {
 
       <ScrollReveal delay={0.3}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          <div className="text-center min-w-0">
+          <div className="text-center min-w-0 overflow-hidden">
             <TickingNumber
               value={stats.sunOrbits}
               rate={rates.sunOrbits}
               format="decimal"
-              decimals={6}
-              className="text-[length:var(--font-size-subheading)] md:text-[length:var(--font-size-heading)] text-text-primary"
+              decimals={4}
+              className="text-[length:var(--font-size-body)] md:text-[length:var(--font-size-subheading)] text-text-primary"
             />
             <p className="text-text-tertiary text-[length:var(--font-size-caption)] mt-1">
               trips around the Sun
             </p>
           </div>
-          <div className="text-center min-w-0">
+          <div className="text-center min-w-0 overflow-hidden">
             <TickingNumber
               value={stats.minutesAlive}
               rate={rates.minutesAlive}
               format="integer"
-              className="text-[length:var(--font-size-subheading)] md:text-[length:var(--font-size-heading)] text-text-primary"
+              className="text-[length:var(--font-size-body)] md:text-[length:var(--font-size-subheading)] text-text-primary"
             />
             <p className="text-text-tertiary text-[length:var(--font-size-caption)] mt-1">
               minutes alive
             </p>
           </div>
-          <div className="text-center min-w-0">
-            <span className="font-[family-name:var(--font-inter)] font-semibold text-[length:var(--font-size-subheading)] md:text-[length:var(--font-size-heading)] text-text-primary tabular-nums">
+          <div className="text-center min-w-0 overflow-hidden">
+            <span className="font-[family-name:var(--font-inter)] font-semibold text-[length:var(--font-size-body)] md:text-[length:var(--font-size-subheading)] text-text-primary tabular-nums">
               {stats.dogYears.toFixed(1)}
             </span>
             <p className="text-text-tertiary text-[length:var(--font-size-caption)] mt-1">
               in dog years
             </p>
           </div>
-          <div className="text-center min-w-0">
-            <span className="font-[family-name:var(--font-inter)] font-semibold text-[length:var(--font-size-subheading)] md:text-[length:var(--font-size-heading)] text-text-primary tabular-nums">
+          <div className="text-center min-w-0 overflow-hidden">
+            <span className="font-[family-name:var(--font-inter)] font-semibold text-[length:var(--font-size-body)] md:text-[length:var(--font-size-subheading)] text-text-primary tabular-nums">
               {stats.plutoYears.toFixed(4)}
             </span>
             <p className="text-text-tertiary text-[length:var(--font-size-caption)] mt-1">

@@ -21,13 +21,14 @@ export default function ProgressBar({
         <span className="text-text-primary text-[length:var(--font-size-body)] font-medium">
           {label}
         </span>
-        <span className="text-text-accent tabular-nums text-[length:var(--font-size-body)] font-semibold">
+        <span className="text-text-accent tabular-nums text-[length:var(--font-size-body)] font-semibold" suppressHydrationWarning>
           {clampedValue.toFixed(1)}%
         </span>
       </div>
       <div className="h-1.5 rounded-full bg-cosmic-surface overflow-hidden">
         <div
           className="h-full rounded-full transition-all duration-1000 ease-out"
+          suppressHydrationWarning
           style={{
             width: `${clampedValue}%`,
             background:

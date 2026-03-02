@@ -9,13 +9,17 @@ import { getYearProgress, getSeasonProgress, getDaylightProgress } from "@/lib/c
 
 export default function TimeProgress() {
   const location = useGeolocation();
-  const [yearProgress, setYearProgress] = useState(getYearProgress());
-  const [season, setSeason] = useState(getSeasonProgress());
-  const [daylight, setDaylight] = useState(
-    getDaylightProgress(location.latitude, location.longitude)
-  );
+  const [mounted, setMounted] = useState(false);
+  const [yearProgress, setYearProgress] = useState(0);
+  const [season, setSeason] = useState({ name: "Loading", progress: 0 });
+  const [daylight, setDaylight] = useState({
+    progress: 0,
+    sunriseTime: "",
+    sunsetTime: "",
+  });
 
   useEffect(() => {
+    setMounted(true);
     const update = () => {
       setYearProgress(getYearProgress());
       setSeason(getSeasonProgress());
@@ -42,7 +46,7 @@ export default function TimeProgress() {
           <ProgressBar
             label="2026"
             value={yearProgress}
-            detail={`Day ${Math.floor((yearProgress / 100) * 365)} of 365`}
+            detail={mounted ? `Day ${Math.floor((yearProgress / 100) * 365)} of 365` : undefined}
           />
         </ScrollReveal>
 
@@ -57,7 +61,7 @@ export default function TimeProgress() {
           <ProgressBar
             label="Today's daylight"
             value={daylight.progress}
-            detail={`${daylight.sunriseTime} → ${daylight.sunsetTime}`}
+            detail={mounted && daylight.sunriseTime ? `${daylight.sunriseTime} → ${daylight.sunsetTime}` : undefined}
           />
         </ScrollReveal>
       </div>

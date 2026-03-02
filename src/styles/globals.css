@@ -64,17 +64,24 @@ html {
 }
 
 body {
+  background-color: var(--sky-gradient-start);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background: linear-gradient(
     180deg,
     var(--sky-gradient-start) 0%,
     var(--sky-gradient-mid) 50%,
     var(--sky-gradient-end) 100%
   );
-  background-attachment: fixed;
-  color: var(--color-text-primary);
-  font-family: var(--font-sans);
   transition: background 60s ease;
-  min-height: 100vh;
 }
 
 /* ===== Tabular Numbers for Counters ===== */

@@ -26,26 +26,44 @@ export default function HeroEarth({ imageUrl, caption, date }: HeroEarthProps) {
               }}
             />
             {imageUrl ? (
-              <img
-                src={imageUrl}
-                alt="Earth from space"
-                className="w-full h-full rounded-full object-cover animate-slow-rotate"
-                style={{
-                  boxShadow:
-                    "0 0 80px rgba(100, 140, 255, 0.15), 0 0 160px rgba(245, 166, 35, 0.08)",
-                }}
-              />
+              <>
+                <img
+                  src={imageUrl}
+                  alt="Earth from space"
+                  className="w-full h-full rounded-full object-cover animate-slow-rotate"
+                  style={{
+                    boxShadow:
+                      "0 0 80px rgba(100, 140, 255, 0.15), 0 0 160px rgba(245, 166, 35, 0.08)",
+                  }}
+                />
+                <div
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle, transparent 55%, rgba(13,10,26,0.4) 75%, rgba(13,10,26,0.9) 90%, #0D0A1A 100%)",
+                  }}
+                />
+              </>
             ) : (
-              <div
-                className="w-full h-full rounded-full bg-cosmic-surface flex items-center justify-center"
-                style={{
-                  boxShadow: "0 0 80px rgba(100, 140, 255, 0.1)",
-                }}
-              >
-                <span className="text-text-tertiary text-[length:var(--font-size-body)]">
-                  Loading Earth...
-                </span>
-              </div>
+              <>
+                <div
+                  className="w-full h-full rounded-full bg-cosmic-surface flex items-center justify-center"
+                  style={{
+                    boxShadow: "0 0 80px rgba(100, 140, 255, 0.1)",
+                  }}
+                >
+                  <span className="text-text-tertiary text-[length:var(--font-size-body)]">
+                    Loading Earth...
+                  </span>
+                </div>
+                <div
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle, transparent 55%, rgba(13,10,26,0.4) 75%, rgba(13,10,26,0.9) 90%, #0D0A1A 100%)",
+                  }}
+                />
+              </>
             )}
           </div>
 
