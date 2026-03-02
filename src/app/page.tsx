@@ -17,7 +17,7 @@ export default async function Home() {
       fetchGoogleTrends(10),
       fetchTopHeadlines(5),
       fetchAPOD(),
-      fetchOnThisDay(3),
+      fetchOnThisDay(5),
     ]);
 
   return (

@@ -18,52 +18,38 @@ export default function HeroEarth({ imageUrl, caption, date }: HeroEarthProps) {
     <SectionWrapper variant="hero" id="hero">
       <ScrollReveal>
         <div className="flex flex-col items-center text-center">
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 mb-8">
+          <div className="relative w-72 h-72 sm:w-88 sm:h-88 md:w-[26rem] md:h-[26rem] mb-8">
+            {/* Atmospheric glow behind Earth */}
             <div
-              className="absolute inset-0 rounded-full"
+              className="absolute -inset-12 rounded-full"
               style={{
-                background: "radial-gradient(circle, rgba(245, 166, 35, 0.08) 0%, transparent 70%)",
+                background:
+                  "radial-gradient(circle, rgba(80, 120, 255, 0.07) 20%, rgba(245, 166, 35, 0.03) 40%, transparent 65%)",
               }}
             />
             {imageUrl ? (
-              <>
-                <img
-                  src={imageUrl}
-                  alt="Earth from space"
-                  className="w-full h-full rounded-full object-cover animate-slow-rotate"
-                  style={{
-                    boxShadow:
-                      "0 0 80px rgba(100, 140, 255, 0.15), 0 0 160px rgba(245, 166, 35, 0.08)",
-                  }}
-                />
-                <div
-                  className="absolute inset-0 rounded-full pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle, transparent 55%, rgba(13,10,26,0.4) 75%, rgba(13,10,26,0.9) 90%, #0D0A1A 100%)",
-                  }}
-                />
-              </>
+              <img
+                src={imageUrl}
+                alt="Earth from space"
+                className="w-full h-full object-cover animate-slow-rotate"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle, white 40%, rgba(255,255,255,0.3) 52%, transparent 62%)",
+                  WebkitMaskImage:
+                    "radial-gradient(circle, white 40%, rgba(255,255,255,0.3) 52%, transparent 62%)",
+                }}
+              />
             ) : (
-              <>
-                <div
-                  className="w-full h-full rounded-full bg-cosmic-surface flex items-center justify-center"
-                  style={{
-                    boxShadow: "0 0 80px rgba(100, 140, 255, 0.1)",
-                  }}
-                >
-                  <span className="text-text-tertiary text-[length:var(--font-size-body)]">
-                    Loading Earth...
-                  </span>
-                </div>
-                <div
-                  className="absolute inset-0 rounded-full pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle, transparent 55%, rgba(13,10,26,0.4) 75%, rgba(13,10,26,0.9) 90%, #0D0A1A 100%)",
-                  }}
-                />
-              </>
+              <div
+                className="w-full h-full rounded-full bg-cosmic-surface flex items-center justify-center"
+                style={{
+                  boxShadow: "0 0 80px rgba(100, 140, 255, 0.1)",
+                }}
+              >
+                <span className="text-text-tertiary text-[length:var(--font-size-body)]">
+                  Loading Earth...
+                </span>
+              </div>
             )}
           </div>
 

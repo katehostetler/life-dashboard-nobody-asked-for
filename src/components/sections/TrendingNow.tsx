@@ -28,7 +28,7 @@ export default function TrendingNow({ trends }: TrendingNowProps) {
         {trends.map((trend, i) => (
           <ScrollReveal key={trend.title} delay={0.1 * (i + 1)}>
             <a
-              href={trend.url || `https://trends.google.com/trending?q=${encodeURIComponent(trend.title)}`}
+              href={trend.url || `https://www.google.com/search?q=${encodeURIComponent(trend.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-baseline gap-4 py-4 border-l-2 border-amber-primary/30 pl-4 hover:border-amber-primary hover:bg-cosmic-surface/30 transition-all duration-300 rounded-r-lg group"

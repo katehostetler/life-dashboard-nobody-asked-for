@@ -34,7 +34,10 @@ export async function fetchGoogleTrends(
         ?? "";
 
       if (title) {
-        items.push({ title, traffic, url: link });
+        // The RSS <link> points to the feed itself, not a search page.
+        // Build a Google search URL from the title instead.
+        const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(title)}`;
+        items.push({ title, traffic, url: searchUrl });
       }
     }
 

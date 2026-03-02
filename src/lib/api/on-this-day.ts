@@ -22,32 +22,50 @@ export async function fetchOnThisDay(
     const events = data?.events;
     if (!Array.isArray(events) || events.length === 0) return [];
 
-    // Pick events from different centuries for variety
-    const sorted = [...events].sort((a, b) => a.year - b.year);
-    const step = Math.max(1, Math.floor(sorted.length / limit));
-    const selected: OnThisDayEvent[] = [];
+    // Pick one event from each era for a spread of history
+    const eras = [
+      { max: 1500 },   // Ancient / medieval
+      { max: 1850 },   // Early modern
+      { max: 1950 },   // Industrial / world wars
+      { max: 1990 },   // Late 20th century
+      { max: 9999 },   // Modern (1990+)
+    ];
 
-    for (let i = 0; i < sorted.length && selected.length < limit; i += step) {
-      const event = sorted[i];
-      selected.push({
-        year: event.year,
-        text: event.text,
-        pages: (event.pages || [])
-          .slice(0, 2)
-          .map(
-            (p: {
-              title: string;
-              content_urls?: { desktop?: { page?: string } };
-            }) => ({
-              title: p.title,
-              url:
-                p.content_urls?.desktop?.page ||
-                `https://en.wikipedia.org/wiki/${encodeURIComponent(p.title)}`,
-            })
-          ),
-      });
+    const selected: OnThisDayEvent[] = [];
+    const used = new Set<number>();
+
+    for (const era of eras) {
+      if (selected.length >= limit) break;
+      const prev = selected.length > 0 ? eras[eras.indexOf(era) - 1]?.max ?? 0 : 0;
+      const candidates = events.filter(
+        (e: { year: number }) => e.year > prev && e.year <= era.max && !used.has(e.year)
+      );
+      if (candidates.length > 0) {
+        // Pick a random one from this era
+        const pick = candidates[Math.floor(Math.random() * candidates.length)];
+        used.add(pick.year);
+        selected.push({
+          year: pick.year,
+          text: pick.text,
+          pages: (pick.pages || [])
+            .slice(0, 2)
+            .map(
+              (p: {
+                title: string;
+                content_urls?: { desktop?: { page?: string } };
+              }) => ({
+                title: p.title,
+                url:
+                  p.content_urls?.desktop?.page ||
+                  `https://en.wikipedia.org/wiki/${encodeURIComponent(p.title)}`,
+              })
+            ),
+        });
+      }
     }
 
+    // Sort chronologically for display
+    selected.sort((a, b) => a.year - b.year);
     return selected;
   } catch {
     return [];
