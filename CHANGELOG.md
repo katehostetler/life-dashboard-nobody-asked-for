@@ -1,6 +1,13 @@
 # Changelog
 
-## 2026-03-01
+## 2026-03-01 (shipped)
+
+### Polish
+- Earth image now fades seamlessly into starry background via CSS mask-image
+- Full-page starfield with twinkling stars behind all content
+- Rare shooting star animations (2 meteors on 45s/60s cycles)
+- Google Trends links open Google search results instead of raw RSS feed
+- On This Day now shows 5 events across broader eras including 1990+
 
 ### Bug Fixes
 - Fixed background going white below the hero section (replaced background-attachment: fixed with fixed pseudo-element)
